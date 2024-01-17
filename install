@@ -1,0 +1,6 @@
+#!/bin/zsh
+elmPackages.elm"
+elmPackages.elm-live"
+elmPackages.elm-review"
+elmPackages.elm-format"
+elmPackages.elm-language-server"

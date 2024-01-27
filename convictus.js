@@ -10554,7 +10554,7 @@ var $elm$core$Basics$never = function (_v0) {
 	}
 };
 var $elm$browser$Browser$document = _Browser_document;
-var $author$project$Main$homeContent = '\nDO\nYOU\nWANT\nTO\nPLAY\nA\nGAME...?\n';
+var $author$project$Main$homeContent = '\nDO\nYOU\nWANT\nTO\nPLAY\nA\nGAME...?\nyeah\ni\'ll\nplay\n';
 var $author$project$Main$init = function (_v0) {
 	return _Utils_Tuple2(
 		{content: $author$project$Main$homeContent, headerColour: 'purple', player: 'lobes', score: 0},

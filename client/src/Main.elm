@@ -160,6 +160,7 @@ footer =
                 , style "margin" "7px"
                 , style "font-size" "37px"
                 , style "align-items" "center"
+                , style "font-family" "ComicCodeLigatures" -- TODO: do this everywhere
                 ]
                 [ text
                     "-- we're so good it's criminal"

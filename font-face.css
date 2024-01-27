@@ -1,24 +1,24 @@
 @font-face {
   font-family: 'ComicCodeLigatures';
-  src: url('/assests/ComicCodeLigatures-Regular.otf') format('opentype');
+  src: url('/client/assets/ComicCodeLigatures-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'ComicCodeLigatures';
-  src: url('/assests/ComicCodeLigatures-Bold.otf') format('opentype');
+  src: url('/client/assets/ComicCodeLigatures-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: 'ComicCodeLigatures';
-  src: url('/assests/ComicCodeLigatures-Italic.otf') format('opentype');
+  src: url('/client/assets/ComicCodeLigatures-Italic.otf') format('opentype');
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
   font-family: 'ComicCodeLigatures';
-  src: url('/assests/ComicCodeLigatures-BoldItalic.otf') format('opentype');
+  src: url('/client/assets/ComicCodeLigatures-BoldItalic.otf') format('opentype');
   font-weight: bold;
   font-style: italic;
 }

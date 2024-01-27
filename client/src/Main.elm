@@ -319,6 +319,9 @@ TO
 PLAY
 A
 GAME...?
+yeah
+i'll
+play
 """
 
 

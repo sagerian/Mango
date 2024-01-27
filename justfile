@@ -1,12 +1,14 @@
 alias s := ship
 alias b := build
-alias l := live
+alias l := local
 
 ship: build
-  scp ~/things/dill/index.html root@45.79.238.25:/var/www/convictus.au  
+  scp index.html root@172.105.167.119:/var/www/convictus.au  
 
 build:
-  elm make ~/things/dill/src/Convictus.elm
+  elm make {{justfile_directory()}}/client/src/Main.elm
+  rm -rf {{justfile_directory()}}/elm-stuff/
+  rm -rf {{justfile_directory()}}/dist-newstyle/
 
-live:
-  elm-live ~/things/dill/src/Convictus.elm
+local:
+  elm-live ~/things/dill/client/src/Main.elm -- --debug

@@ -44,7 +44,7 @@ type alias Model =
 
 type Msg
     = ClickedHome
-    | ClickedRoster
+    | ClickedKrew
     | ClickedAboutUs
 
 
@@ -54,22 +54,41 @@ view model =
     , body =
         [ div
             [ flex
-            , style "flex-flow" "column"
             , style "justify-content" "space-between"
-            , style "font-family" "sans-serif"
+            , style "flex-flow" "column"
+            , style "font-family" "Verdana"
             , background model.headerColour
             , style "width" "100%"
-            , style "height" "100%"
+            , style "height" "100vh"
             ]
             [ div
                 [ flex
                 , style "justify-content" "space-between"
-                , pad "17px"
-                , style "font-size" "27px"
+                , style "font-size" "47px"
+                , style "height " "17%"
+                , background "green"
+                , style "border-bottom" "7px solid black"
                 ]
                 header
-            , div [] [ content ]
-            , div [] [ footer ]
+            , div
+                [ flex
+                , style "justify-content" "center"
+                , style "align-items" "center"
+                , style "flex-flow" "column"
+                , style "font-size" "47px"
+                , style "height " "17%"
+                ]
+                [ content ]
+            , div
+                [ flex
+                , background "green"
+                , style "justify-content" "center"
+                , style "align-items" "center"
+                , style "font-size" "47px"
+                , style "border-top" "7px solid black"
+                , style "font-style" "italic"
+                ]
+                [ footer ]
             ]
         ]
     }
@@ -77,39 +96,53 @@ view model =
 
 header : List (Html.Html Msg)
 header =
-    [ home, roster, aboutUs ]
-
-
-home : Html.Html Msg
-home =
-    div
-        [ flex
-        , style "justify-content" "space-between"
-        , pad "17px"
-        , padL "7px"
-        , onClick ClickedHome
+    [ div
+        [ onClick ClickedHome
+        , pad "7px"
+        , style "margin" "17px"
+        , style "border" "3px solid black"
+        , style "border-radius" "17px"
         ]
         [ text "Convictus" ]
-
-
-roster : Html.Html Msg
-roster =
-    div [] [ text "roster" ]
-
-
-aboutUs : Html.Html Msg
-aboutUs =
-    div [] [ text "about us" ]
+    , div
+        [ onClick ClickedKrew
+        , pad "7px"
+        , style "margin" "17px"
+        , style "border" "3px solid black"
+        , style "border-radius" "17px"
+        ]
+        [ text "krew" ]
+    , div
+        [ onClick ClickedAboutUs
+        , pad "7px"
+        , style "margin" "17px"
+        , style "border" "3px solid black"
+        , style "border-radius" "17px"
+        ]
+        [ text "about us" ]
+    ]
 
 
 content : Html.Html Msg
 content =
-    div [] []
+    div
+        [ flex
+        , background "yellow"
+        ]
+        [ text "Content" ]
 
 
 footer : Html.Html Msg
 footer =
-    div [] []
+    div
+        [ flex
+        , style "margin" "7px"
+        , style "font-size" "37px"
+        , style "align-items" "center"
+        ]
+        [ text
+            "-- we're so good it's criminal"
+        ]
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -118,11 +151,11 @@ update msg model =
         ClickedHome ->
             ( { model | headerColour = "red" }, Cmd.none )
 
-        ClickedRoster ->
-            ( model, Cmd.none )
+        ClickedKrew ->
+            ( { model | headerColour = "pink" }, Cmd.none )
 
         ClickedAboutUs ->
-            ( model, Cmd.none )
+            ( { model | headerColour = "blue" }, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
@@ -147,8 +180,3 @@ background colour =
 pad : String -> Html.Attribute msg
 pad pixels =
     style "padding" pixels
-
-
-padL : String -> Html.Attribute msg
-padL pixels =
-    style "padding-left" pixels

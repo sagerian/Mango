@@ -10587,55 +10587,99 @@ var $author$project$Main$update = F2(
 						model,
 						{headerColour: 'red'}),
 					$elm$core$Platform$Cmd$none);
-			case 'ClickedRoster':
-				return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+			case 'ClickedKrew':
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{headerColour: 'pink'}),
+					$elm$core$Platform$Cmd$none);
 			default:
-				return _Utils_Tuple2(model, $elm$core$Platform$Cmd$none);
+				return _Utils_Tuple2(
+					_Utils_update(
+						model,
+						{headerColour: 'blue'}),
+					$elm$core$Platform$Cmd$none);
 		}
 	});
 var $author$project$Main$background = function (colour) {
 	return A2($elm$html$Html$Attributes$style, 'background-color', colour);
 };
-var $author$project$Main$content = A2($elm$html$Html$div, _List_Nil, _List_Nil);
 var $author$project$Main$flex = A2($elm$html$Html$Attributes$style, 'display', 'flex');
-var $author$project$Main$footer = A2($elm$html$Html$div, _List_Nil, _List_Nil);
-var $author$project$Main$aboutUs = A2(
-	$elm$html$Html$div,
-	_List_Nil,
-	_List_fromArray(
-		[
-			$elm$html$Html$text('about us')
-		]));
-var $author$project$Main$ClickedHome = {$: 'ClickedHome'};
-var $author$project$Main$pad = function (pixels) {
-	return A2($elm$html$Html$Attributes$style, 'padding', pixels);
-};
-var $author$project$Main$padL = function (pixels) {
-	return A2($elm$html$Html$Attributes$style, 'padding-left', pixels);
-};
-var $author$project$Main$home = A2(
+var $author$project$Main$content = A2(
 	$elm$html$Html$div,
 	_List_fromArray(
 		[
 			$author$project$Main$flex,
-			A2($elm$html$Html$Attributes$style, 'justify-content', 'space-between'),
-			$author$project$Main$pad('17px'),
-			$author$project$Main$padL('7px'),
-			$elm$html$Html$Events$onClick($author$project$Main$ClickedHome)
+			$author$project$Main$background('yellow')
 		]),
 	_List_fromArray(
 		[
-			$elm$html$Html$text('Convictus')
+			$elm$html$Html$text('Content')
 		]));
-var $author$project$Main$roster = A2(
+var $author$project$Main$footer = A2(
 	$elm$html$Html$div,
-	_List_Nil,
 	_List_fromArray(
 		[
-			$elm$html$Html$text('roster')
+			$author$project$Main$flex,
+			A2($elm$html$Html$Attributes$style, 'margin', '7px'),
+			A2($elm$html$Html$Attributes$style, 'font-size', '37px'),
+			A2($elm$html$Html$Attributes$style, 'align-items', 'center')
+		]),
+	_List_fromArray(
+		[
+			$elm$html$Html$text('-- we\'re so good it\'s criminal')
 		]));
+var $author$project$Main$ClickedAboutUs = {$: 'ClickedAboutUs'};
+var $author$project$Main$ClickedHome = {$: 'ClickedHome'};
+var $author$project$Main$ClickedKrew = {$: 'ClickedKrew'};
+var $author$project$Main$pad = function (pixels) {
+	return A2($elm$html$Html$Attributes$style, 'padding', pixels);
+};
 var $author$project$Main$header = _List_fromArray(
-	[$author$project$Main$home, $author$project$Main$roster, $author$project$Main$aboutUs]);
+	[
+		A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Events$onClick($author$project$Main$ClickedHome),
+				$author$project$Main$pad('7px'),
+				A2($elm$html$Html$Attributes$style, 'margin', '17px'),
+				A2($elm$html$Html$Attributes$style, 'border', '3px solid black'),
+				A2($elm$html$Html$Attributes$style, 'border-radius', '17px')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('Convictus')
+			])),
+		A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Events$onClick($author$project$Main$ClickedKrew),
+				$author$project$Main$pad('7px'),
+				A2($elm$html$Html$Attributes$style, 'margin', '17px'),
+				A2($elm$html$Html$Attributes$style, 'border', '3px solid black'),
+				A2($elm$html$Html$Attributes$style, 'border-radius', '17px')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('krew')
+			])),
+		A2(
+		$elm$html$Html$div,
+		_List_fromArray(
+			[
+				$elm$html$Html$Events$onClick($author$project$Main$ClickedAboutUs),
+				$author$project$Main$pad('7px'),
+				A2($elm$html$Html$Attributes$style, 'margin', '17px'),
+				A2($elm$html$Html$Attributes$style, 'border', '3px solid black'),
+				A2($elm$html$Html$Attributes$style, 'border-radius', '17px')
+			]),
+		_List_fromArray(
+			[
+				$elm$html$Html$text('about us')
+			]))
+	]);
 var $author$project$Main$view = function (model) {
 	return {
 		body: _List_fromArray(
@@ -10645,12 +10689,12 @@ var $author$project$Main$view = function (model) {
 				_List_fromArray(
 					[
 						$author$project$Main$flex,
-						A2($elm$html$Html$Attributes$style, 'flex-flow', 'column'),
 						A2($elm$html$Html$Attributes$style, 'justify-content', 'space-between'),
-						A2($elm$html$Html$Attributes$style, 'font-family', 'sans-serif'),
+						A2($elm$html$Html$Attributes$style, 'flex-flow', 'column'),
+						A2($elm$html$Html$Attributes$style, 'font-family', 'Verdana'),
 						$author$project$Main$background(model.headerColour),
 						A2($elm$html$Html$Attributes$style, 'width', '100%'),
-						A2($elm$html$Html$Attributes$style, 'height', '100%')
+						A2($elm$html$Html$Attributes$style, 'height', '100vh')
 					]),
 				_List_fromArray(
 					[
@@ -10660,18 +10704,37 @@ var $author$project$Main$view = function (model) {
 							[
 								$author$project$Main$flex,
 								A2($elm$html$Html$Attributes$style, 'justify-content', 'space-between'),
-								$author$project$Main$pad('17px'),
-								A2($elm$html$Html$Attributes$style, 'font-size', '27px')
+								A2($elm$html$Html$Attributes$style, 'font-size', '47px'),
+								A2($elm$html$Html$Attributes$style, 'height ', '17%'),
+								$author$project$Main$background('green'),
+								A2($elm$html$Html$Attributes$style, 'border-bottom', '7px solid black')
 							]),
 						$author$project$Main$header),
 						A2(
 						$elm$html$Html$div,
-						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$flex,
+								A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
+								A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
+								A2($elm$html$Html$Attributes$style, 'flex-flow', 'column'),
+								A2($elm$html$Html$Attributes$style, 'font-size', '47px'),
+								A2($elm$html$Html$Attributes$style, 'height ', '17%')
+							]),
 						_List_fromArray(
 							[$author$project$Main$content])),
 						A2(
 						$elm$html$Html$div,
-						_List_Nil,
+						_List_fromArray(
+							[
+								$author$project$Main$flex,
+								$author$project$Main$background('green'),
+								A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
+								A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
+								A2($elm$html$Html$Attributes$style, 'font-size', '47px'),
+								A2($elm$html$Html$Attributes$style, 'border-top', '7px solid black'),
+								A2($elm$html$Html$Attributes$style, 'font-style', 'italic')
+							]),
 						_List_fromArray(
 							[$author$project$Main$footer]))
 					]))
@@ -10682,7 +10745,7 @@ var $author$project$Main$view = function (model) {
 var $author$project$Main$main = $elm$browser$Browser$document(
 	{init: $author$project$Main$init, subscriptions: $author$project$Main$subscriptions, update: $author$project$Main$update, view: $author$project$Main$view});
 _Platform_export({'Main':{'init':$author$project$Main$main(
-	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"ClickedHome":[],"ClickedRoster":[],"ClickedAboutUs":[]}}}}})}});}(this));
+	$elm$json$Json$Decode$succeed(_Utils_Tuple0))({"versions":{"elm":"0.19.1"},"types":{"message":"Main.Msg","aliases":{},"unions":{"Main.Msg":{"args":[],"tags":{"ClickedHome":[],"ClickedKrew":[],"ClickedAboutUs":[]}}}}})}});}(this));
 
   var app = Elm.Main.init({ node: document.getElementById("elm") });
 }

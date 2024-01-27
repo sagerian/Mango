@@ -1,7 +1,7 @@
 module Main exposing (..)
 
 import Browser exposing (Document, document)
-import Html exposing (Html, div, pre, text)
+import Html exposing (Html, a, div, li, pre, text)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import Platform.Sub exposing (none)
@@ -58,6 +58,7 @@ view model =
             [ style "display" "flex"
             , style "flex-direction" "column"
             , style "height" "100vh"
+            , style "width" "100vw"
             , style "font-family" "Verdana"
             ]
             [ header
@@ -76,12 +77,12 @@ header =
             [ flex
             , style "justify-content" "space-between"
             , style "font-size" "47px"
-            , style "height " "17%"
             , background "green"
             , style "border-bottom" "7px solid black"
             ]
             [ div
                 [ onClick ClickedHome
+                , style "cursor" "pointer"
                 , pad "7px"
                 , style "margin" "17px"
                 , style "border" "3px solid black"
@@ -90,6 +91,7 @@ header =
                 [ text "Convictus" ]
             , div
                 [ onClick ClickedKrew
+                , style "cursor" "pointer"
                 , pad "7px"
                 , style "margin" "17px"
                 , style "border" "3px solid black"
@@ -98,6 +100,7 @@ header =
                 [ text "krew" ]
             , div
                 [ onClick ClickedAboutUs
+                , style "cursor" "pointer"
                 , pad "7px"
                 , style "margin" "17px"
                 , style "border" "3px solid black"

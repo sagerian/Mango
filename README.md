@@ -1,11 +1,54 @@
 # dill - a playground for elm and haskell
 
-## Getting Started (macOS):
+## Getting Started:
 
-1. open a terminal and run `git clone https://github.com/lobes/dill -o [output-path]`
-2. run `elm`
-3. if it errors, install elm [here](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg) 
-4. go to `[output-path]` and run `elm reactor`
-5. do what it says and go to http://localhost:8000/
-6. click on `src` then click on `Main.elm`
-7. Hello World!
+### Nix as Package Manager (trust me):
+Run this and blindly say yes:
+```sh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+So what it says at the end about the daemon.
+
+Open either `{HOME}/.zshrc` or `{HOME}/.bashrc` and add this function:
+```sh
+npi() {
+  if [ "$#" -eq 0 ] || [ "$#" -gt 2 ]; then
+    echo "Usage: npi <package_name> [impure]"
+    return 1
+  fi
+  if [ "$#" -eq 1 ]; then
+    nix profile install nixpkgs#$1
+    return 0
+  fi
+  if [ "$#" -eq 2 ]; then
+    export NIXPKGS_ALLOW_UNFREE=1 && nix profile install nixpkgs#$1 --impure
+    return 0
+  fi
+}
+```
+
+### Things you need:
+```sh
+npi just
+```
+```sh
+npi elmPackages.elm
+```
+```sh
+npi elmPackages.elm-live
+```
+```sh
+npi elmPackages.elm-review
+```
+```sh
+npi elmPackages.elm-format
+```
+```sh
+npi elmPackages.elm-language-server
+```
+
+### Develop
+```sh
+cd REPO_ROOT
+just l
+```

@@ -7,7 +7,7 @@ Run this and blindly say yes:
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
-So what it says at the end about the daemon.
+Do what it says at the end about the daemon.
 
 Open either `{HOME}/.zshrc` or `{HOME}/.bashrc` and add this function:
 ```sh

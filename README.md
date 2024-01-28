@@ -26,6 +26,9 @@ npi() {
   fi
 }
 ```
+```sh
+source RC_FILE
+```
 
 ### Things you need:
 ```sh
